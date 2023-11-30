@@ -5,11 +5,15 @@ import { AppComponent } from './app.component';
 import { AppModuleComponents, AppRoutingModule } from './app-routing.module';
 import { counterReducer } from './counter/store/counter.reducer';
 import { StoreModule } from '@ngrx/store';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AppModuleComponents
+    AppModuleComponents,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
