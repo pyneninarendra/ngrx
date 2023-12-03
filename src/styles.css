@@ -17,7 +17,7 @@ label,
 input,
 button,
 textarea,
-.btn {
+.btn, .form-control {
     font-size: 1.6rem;
 }
 

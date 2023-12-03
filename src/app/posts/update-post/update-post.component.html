@@ -1,0 +1,26 @@
+
+<div class="mt-3">
+    <h2>Update Post Form</h2>
+    <form class="form-horizontal" [formGroup]="updatePostFrm">
+        <div class="form-group mb-3">
+            <label class="form-label">Title</label>
+            <input type="text" class="form-control" formControlName="title" [ngClass]="{'is-invalid': updatePostFrm.controls['title'].touched && updatePostFrm.controls['title'].errors, 'is-valid':updatePostFrm.controls['title'].touched && updatePostFrm.controls['title'].valid}" />
+            <div class="text-danger mt-2 mb-2" *ngIf="updatePostFrm.controls['title'].errors">
+                <span
+                    *ngIf="updatePostFrm.controls['title'].touched && updatePostFrm.controls['title'].errors['required']">Title
+                    is Required</span>
+                <span
+                    *ngIf="updatePostFrm.controls['title'].touched && updatePostFrm.controls['title'].errors['minlength']">Min
+                    Length is 6 Characters</span>
+            </div>
+        </div>
+        <div class="form-group mb-3">
+            <label class="form-label">Description</label>
+            <input type="textarea" class="form-control" formControlName="description" [ngClass]="{'is-invalid': updatePostFrm.controls['description'].touched && updatePostFrm.controls['description'].errors, 'is-valid':updatePostFrm.controls['description'].touched && updatePostFrm.controls['description'].valid}" />
+            <div class="text-danger mt-2 mb-2" *ngIf="updatePostFrm.controls['description'].touched && updatePostFrm.controls['description'].errors">
+                <span *ngIf="updatePostFrm.controls['description'].errors['required']">Description is Required</span>
+            </div>
+        </div>
+        <button type="button" class="btn btn-primary" [disabled]="updatePostFrm.invalid" (click)="updatePost()">Update Post</button>
+    </form>
+</div>

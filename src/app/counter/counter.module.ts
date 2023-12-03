@@ -4,16 +4,20 @@ import { CounterComponent } from './counter/counter.component';
 import { CounterOutputComponent } from './counter-output/counter-output.component';
 import { CounterButtonComponent } from './counter-button/counter-button.component';
 import { CounterModuleComponents, CounterRoutingModule } from './counter-routing.module';
+import { CounterInputComponent } from './counter-input/counter-input.component';
+import { FormsModule } from '@angular/forms';
 
 
 
 @NgModule({
   declarations: [
-    CounterModuleComponents
+    CounterModuleComponents,
+    CounterInputComponent
   ],
   imports: [
     CommonModule,
-    CounterRoutingModule
+    CounterRoutingModule,
+    FormsModule
   ]
 })
 export class CounterModule { }

@@ -1,6 +1,8 @@
 export interface counterState {
-    counter: number
+    counter: number,
+    text: string
 }
 export const initialState:counterState = {
-    counter: 0
+    counter: 0,
+    text: 'Leela Web Dev'
 }

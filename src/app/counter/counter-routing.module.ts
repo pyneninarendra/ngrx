@@ -3,6 +3,7 @@ import { CounterButtonComponent } from "./counter-button/counter-button.componen
 import { CounterOutputComponent } from "./counter-output/counter-output.component";
 import { CounterComponent } from "./counter/counter.component";
 import { RouterModule, Routes } from "@angular/router";
+import { CounterInputComponent } from "./counter-input/counter-input.component";
 
 const routes: Routes = [
     { path: '', component: CounterComponent }
@@ -17,5 +18,6 @@ export class CounterRoutingModule { }
 export const CounterModuleComponents = [
     CounterComponent,
     CounterButtonComponent,
-    CounterOutputComponent
+    CounterOutputComponent,
+    CounterInputComponent
 ]

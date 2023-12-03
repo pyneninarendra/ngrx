@@ -1,0 +1,8 @@
+<div class="col-4 mx-auto mt-3">
+<h2>Name: {{ counterName | async }}</h2>
+<input type="number" class="form-control mb-2" name="inputNum" [(ngModel)]="inputNum" />
+<button type="button" class="btn btn-primary" (click)="updateCounter()">Update State</button>
+</div>
+<div class="mt-3">
+    <button type="button" class="btn btn-warning" (click)="updateName()">Change Name</button>
+</div>

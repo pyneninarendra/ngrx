@@ -7,6 +7,9 @@ import { counterReducer } from './counter/store/counter.reducer';
 import { StoreModule } from '@ngrx/store';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { StoreDevtools, StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from 'environments/environment';
+import { appReducer } from './store/app.state';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,11 @@ import { FooterComponent } from './footer/footer.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({ counter: counterReducer })
+    StoreModule.forRoot(appReducer),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

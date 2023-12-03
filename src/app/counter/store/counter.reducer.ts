@@ -1,5 +1,5 @@
 import { createReducer, on } from "@ngrx/store"
-import { decrement, increment, reset } from "./counter.action"
+import { customCounterUpdate, decrement, increment, reset, updateCounterName } from "./counter.action"
 import { initialState } from "./counter.store"
 
 const _counterReducer = createReducer(initialState,
@@ -19,6 +19,18 @@ const _counterReducer = createReducer(initialState,
         return {
             ...state,
             counter: 0
+        }
+    }),
+    on(customCounterUpdate, (state: any, action: any) => {
+        return {
+            ...state,
+            counter: state.counter + action.inputNum
+        }
+    }),
+    on(updateCounterName, (state) => {
+        return {
+            ...state,
+            text: 'Leela Web'
         }
     })
 )
