@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PostComponents, PostRoutingModule } from './post-routing.module';
+import { StoreModule } from '@ngrx/store';
+import { PostReducer } from './store/post.reducer';
 
 
 @NgModule({
@@ -12,7 +14,7 @@ import { PostComponents, PostRoutingModule } from './post-routing.module';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    PostRoutingModule,
+    PostRoutingModule
   ]
 })
 export class PostsModule { }

@@ -6,6 +6,8 @@ import { CounterButtonComponent } from './counter-button/counter-button.componen
 import { CounterModuleComponents, CounterRoutingModule } from './counter-routing.module';
 import { CounterInputComponent } from './counter-input/counter-input.component';
 import { FormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
+import { counterReducer } from './store/counter.reducer';
 
 
 

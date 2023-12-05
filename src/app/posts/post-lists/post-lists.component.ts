@@ -14,14 +14,16 @@ import { Router } from '@angular/router';
 export class PostListsComponent {
 
   posts$: Observable<any>
-  constructor(private store: Store<postState>,private router: Router) { }
+  constructor(private store: Store<postState>, private router: Router) { }
 
   ngOnInit(): void {
     this.posts$ = this.store.select(getPosts)
   }
 
   deletePost = (id: any) => {
-    this.store.dispatch(deletePost({ id: id }))
-    this.router.navigate(['/','post'])
+    if (confirm('Do you really want to delete')) {
+      this.store.dispatch(deletePost({ id: id }))
+      this.router.navigate(['/', 'post'])
+    }
   }
 }

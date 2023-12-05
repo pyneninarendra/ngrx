@@ -7,6 +7,7 @@ const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'counter', loadChildren: () => import('./counter/counter.module').then(m => m.CounterModule) },
     { path: 'post', loadChildren: () => import('./posts/posts.module').then(m => m.PostsModule) },
+    {path: 'auth', loadChildren: ()=> import('./auth/auth.module').then(m=>m.AuthModule)},
     { path: '', redirectTo: 'home', pathMatch: 'full' }
 ]
 
