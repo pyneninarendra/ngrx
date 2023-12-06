@@ -20,4 +20,19 @@ export class AuthService {
         let expireDate = new Date(new Date().getTime() + +info.expiresIn * 1000)
         return new User(info.idToken, info.email, info.localId, expireDate)
     }
+
+    formatErrorMessage(msg: string) {
+        switch (msg) {
+            case 'EMAIL_NOT_FOUND':
+                return 'Email not found'
+            case 'INVALID_PASSWORD':
+                return 'Invalid Password'
+            case 'USER_DISABLED':
+                return 'User is disabled'
+            case 'INVALID_LOGIN_CREDENTIALS':
+                return 'Invalid login credentials'
+            default:
+                return 'Unknown Error'
+        }
+    }
 }

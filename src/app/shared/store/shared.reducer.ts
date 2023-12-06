@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store"
 import { initialState } from "./shared.state"
-import { updateStatus } from "./shared.action"
+import { setErrorMsg, updateStatus } from "./shared.action"
 
 const _sharedReducer = createReducer(
     initialState,
@@ -8,6 +8,12 @@ const _sharedReducer = createReducer(
         return {
             ...state,
             status: action.status
+        }
+    }),
+    on(setErrorMsg, (state, action)=> {
+        return {
+            ...state,
+            errorMsg: action.errorMsg
         }
     })
 )

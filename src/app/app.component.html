@@ -4,6 +4,9 @@
     </header>
     <main class="container-fluid">
         <app-spinner *ngIf="status$ | async"></app-spinner>
+        <div class="errorMessagesContainer mt-5" *ngIf="errorMessage$ | async">
+            <p class="m-0 alert alert-danger">{{errorMessage$ | async}}</p>
+        </div>
         <router-outlet></router-outlet>
     </main>
     <footer>

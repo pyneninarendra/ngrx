@@ -1,9 +1,9 @@
 export interface sharedState {
     status: boolean,
-    errorMsg: string
+    errorMsg: string | null
 
 }
 export const initialState: sharedState = {
     status: false,
-    errorMsg: ''
+    errorMsg: null
 }

@@ -6,6 +6,7 @@ const sharedFS = createFeatureSelector<sharedState>('share')
 export const getSharedStatus = createSelector(sharedFS, (state)=> {
     return state.status
 })
-export const getErrorMsg = createSelector(sharedFS, (state, action) => {
+
+export const getErrorMsg = createSelector(sharedFS, (state) => {
     return state.errorMsg
 })
