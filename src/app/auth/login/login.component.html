@@ -8,9 +8,7 @@
             <div class="text-danger" *ngIf="loginFrm.controls['email'].touched && loginFrm.controls['email'].errors">
                 <span *ngIf="loginFrm.controls['email'].touched && loginFrm.controls['email'].errors['required']">Email
                     is required</span>
-                <span *ngIf="loginFrm.controls['email'].touched && loginFrm.controls['email'].errors['minlength']">Email
-                    minimum length is 6 Charactors</span>
-                <span *ngIf="loginFrm.controls['email'].touched && loginFrm.controls['email'].errors['invalid']">Invalid
+                <span *ngIf="loginFrm.controls['email'].touched && loginFrm.controls['email'].errors['email']">Invalid
                     email format</span>
             </div>
         </div>
@@ -18,9 +16,9 @@
             <label class="form-label">Password</label>
             <input type="password" class="form-control" placeholder="Password" formControlName="password" />
             <div class="text-danger" *ngIf="loginFrm.controls['password'].touched && loginFrm.controls['password'].errors">
-                <span *ngIf="loginFrm.controls['password'].touched && loginFrm.controls['password'].errors['required']">Email
+                <span *ngIf="loginFrm.controls['password'].touched && loginFrm.controls['password'].errors['required']">Password
                     is required</span>
-                <span *ngIf="loginFrm.controls['password'].touched && loginFrm.controls['password'].errors['minlength']">Email
+                <span *ngIf="loginFrm.controls['password'].touched && loginFrm.controls['password'].errors['minlength']">Password
                     minimum length is 6 Charactors</span>
             </div>
         </div>

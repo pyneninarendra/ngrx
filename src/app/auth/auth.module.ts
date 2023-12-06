@@ -7,12 +7,14 @@ import { EffectsModule } from '@ngrx/effects';
 import { AuthEffect } from './store/auth.effects';
 import { StoreModule } from '@ngrx/store';
 import { authReducer } from './store/auth.reducer';
+import { SignupComponent } from './signup/signup.component';
 
 
 
 @NgModule({
   declarations: [
-    AuthRoutingComponents
+    AuthRoutingComponents,
+    SignupComponent
   ],
   imports: [
     CommonModule,

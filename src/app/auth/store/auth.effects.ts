@@ -1,6 +1,6 @@
 import { AuthService } from "../auth.service";
 import { catchError, map, mergeMap, of, tap } from "rxjs";
-import { loginStart, loginSuccess } from "./auth.actions";
+import { loginStart, loginSuccess, signupStart, signupSuccess } from "./auth.actions";
 import { createEffect, ofType, Actions } from "@ngrx/effects";
 import { Injectable } from "@angular/core";
 import { Store } from "@ngrx/store";
@@ -35,12 +35,44 @@ export class AuthEffect {
         )
     })
 
-    loginSuccess$ = createEffect(() => { 
+    loginSuccess$ = createEffect(() => {
         return this.actions$.pipe(
             ofType(loginSuccess),
-            tap((action)=> {
-                this.router.navigate(['/','home'])
+            tap((action) => {
+                this.router.navigate(['/', 'home'])
             })
         )
-    }, {dispatch: false})
+    }, { dispatch: false })
+
+    signup$ = createEffect(() => {
+        return this.actions$.pipe(
+            ofType(signupStart),
+            mergeMap((action) => {
+                return this.authSrv.signup(action.email, action.password).pipe(
+                    map((res) => {
+                        let user = this.authSrv.formatData(res)
+                        this.store.dispatch(updateStatus({ status: false }))
+                        this.store.dispatch(setErrorMsg({ errorMsg: '' }))
+                        return signupSuccess({ user })
+                    }),
+                    catchError((error) => {
+                        let msg = this.authSrv.formatErrorMessage(error.error.error.message)
+                        this.store.dispatch(updateStatus({ status: false }))
+                        return of(setErrorMsg({ errorMsg: msg }))
+                    })
+                )
+            })
+        )
+    })
+
+    signupSuccess$ = createEffect(() => {
+        return this.actions$.pipe(
+            ofType(signupSuccess),
+            tap((action) => {
+                this.router.navigate(['/', 'auth'])
+            })
+        )
+    }, {
+        dispatch: false
+    })
 }

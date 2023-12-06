@@ -16,6 +16,10 @@ export class AuthService {
         return this.http.post<AuthResponse>(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${environment.firebaseConfig.apiKey}`, { email, password, returnSecureToken: true })
     }
 
+    signup(email: string, password: string): Observable<AuthResponse> {
+        return this.http.post<AuthResponse>(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${environment.firebaseConfig.apiKey}`, { email, password, returnSecureToken: true })
+    }
+
     formatData(info: AuthResponse) {
         let expireDate = new Date(new Date().getTime() + +info.expiresIn * 1000)
         return new User(info.idToken, info.email, info.localId, expireDate)
@@ -31,6 +35,12 @@ export class AuthService {
                 return 'User is disabled'
             case 'INVALID_LOGIN_CREDENTIALS':
                 return 'Invalid login credentials'
+            case 'EMAIL_EXISTS':
+                return 'The email address is already in use by another account'
+            case 'OPERATION_NOT_ALLOWED':
+                return 'Password sign-in is disabled for this project'
+            case 'TOO_MANY_ATTEMPTS_TRY_LATER':
+                return 'We have blocked all requests from this device due to unusual activity, Try again later'
             default:
                 return 'Unknown Error'
         }
