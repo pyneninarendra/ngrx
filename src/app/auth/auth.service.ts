@@ -28,11 +28,11 @@ export class AuthService {
     formatErrorMessage(msg: string) {
         switch (msg) {
             case 'EMAIL_NOT_FOUND':
-                return 'Email not found'
+                return 'There is no user record corresponding to this identifier. The user may have been deleted.'
             case 'INVALID_PASSWORD':
-                return 'Invalid Password'
+                return 'The password is invalid or the user does not have a password'
             case 'USER_DISABLED':
-                return 'User is disabled'
+                return 'The user account has been disabled by an administrator'
             case 'INVALID_LOGIN_CREDENTIALS':
                 return 'Invalid login credentials'
             case 'EMAIL_EXISTS':
