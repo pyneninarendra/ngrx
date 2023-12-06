@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { spinnerState } from './spinner/store/spinner.state';
-import { updateStatus } from './spinner/store/spinner.action';
+import { Observable } from 'rxjs';
+import { sharedState } from './shared/store/shared.state';
+import { getSharedStatus } from './shared/store/shared.selector';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,10 @@ import { updateStatus } from './spinner/store/spinner.action';
 })
 export class AppComponent implements OnInit {
   title = 'ngrx';
-  constructor(private store: Store<spinnerState>) { }
+
+  status$: Observable<boolean>
+  constructor(private store: Store<sharedState>) { }
   ngOnInit(): void {
+    this.status$ = this.store.select(getSharedStatus)
   }
 }

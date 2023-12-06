@@ -3,13 +3,13 @@ import { map, mergeMap } from "rxjs";
 import { loginStart, loginSuccess } from "./auth.actions";
 import { createEffect, ofType, Actions } from "@ngrx/effects";
 import { Injectable } from "@angular/core";
-import { spinnerState } from "src/app/spinner/store/spinner.state";
 import { Store } from "@ngrx/store";
-import { updateStatus } from "src/app/spinner/store/spinner.action";
+import { updateStatus } from "src/app/shared/store/shared.action";
+import { sharedState } from "src/app/shared/store/shared.state";
 
 @Injectable()
 export class AuthEffect {
-    constructor(private actions$: Actions, private authSrv: AuthService, private store: Store<spinnerState>) { }
+    constructor(private actions$: Actions, private authSrv: AuthService, private store: Store<sharedState>) { }
 
     login$ = createEffect(() => {
         return this.actions$.pipe(

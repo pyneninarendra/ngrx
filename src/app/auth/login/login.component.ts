@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { authstate } from '../store/auth.store';
 import { Store } from '@ngrx/store';
 import { loginStart } from '../store/auth.actions';
-import { updateStatus } from 'src/app/spinner/store/spinner.action';
+import { updateStatus } from 'src/app/shared/store/shared.action';
 
 @Component({
   selector: 'app-login',
